@@ -12,14 +12,14 @@ pip3 install jinja2
 python3 script.py ${VM_COUNT}
 
 
-#git clone https://github.com/openshift-metalkube/dev-scripts
+git clone https://github.com/openshift-metalkube/dev-scripts
 rm -rf dev-scripts/tripleo-quickstart-config/metalkube-nodes.yml
 mv out.yaml dev-scripts/tripleo-quickstart-config/metalkube-nodes.yml
-#cd dev-scripts
+cd dev-scripts
 
 
 ##assuming the install to be new install
-#./01_install_requirements.sh
+./01_install_requirements.sh
 ./02_configure_host.sh
 
 # Verify vms are present
@@ -46,6 +46,12 @@ done
 
 for count in $(seq(0 $VM_COUNT));do
         openstack baremetal node manage openshift_master_${count}
+done
+
+echo "Wait for 60 seconds"
+for i in $(seq 0 60);do
+    echo "Waiting for nodes to come UP..."
+    sleep 1
 done
 
 openstack baremetal node list 
