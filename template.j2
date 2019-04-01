@@ -1,0 +1,27 @@
+openshift_memory: 6144
+default_vcpu: 2
+overcloud_nodes:
+
+{% for count in range(limit) %}
+  - name: openshift_master_{{ count }}
+    flavor: openshift_master
+    virtualbmc_port: {{ 6230 + count }}
+
+{% endfor %}
+
+node_count: {{ limit }}
+
+{% raw -%}
+flavors:
+  openshift_master:
+    memory: '{{openshift_memory|default(default_memory)}}'
+    disk: '{{openshift_disk|default(default_disk)}}'
+    vcpu: '{{openshift_vcpu|default(default_vcpu)}}'
+    extradisks: true
+
+  openshift_worker:
+    memory: '{{openshift_memory|default(default_memory)}}'
+    disk: '{{openshift_disk|default(default_disk)}}'
+    vcpu: '{{openshift_vcpu|default(default_vcpu)}}'
+    extradisks: true
+{% endraw -%}
