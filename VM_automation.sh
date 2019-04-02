@@ -17,7 +17,7 @@ deactivate #deactivate the virtual Environment
 git clone https://github.com/openshift-metalkube/dev-scripts
 rm -rf dev-scripts/tripleo-quickstart-config/metalkube-nodes.yml
 mv out.yaml dev-scripts/tripleo-quickstart-config/metalkube-nodes.yml
-mv config_example.sh dev-scripts/config_${USER}.sh
+cp -pr config_example.sh dev-scripts/config_${USER}.sh
 cd dev-scripts
 
 
