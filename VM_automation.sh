@@ -50,7 +50,7 @@ done
 
 echo "Wait for 60 seconds"
 for i in $(seq 0 60);do
-    echo "Waiting for nodes to come UP ."${i}" Seconds done..."
+    echo "Waiting for nodes to come UP. "${i}" Seconds done..."
     sleep 1
 done
 
