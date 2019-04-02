@@ -3,7 +3,7 @@
 # Get a valid pull secret (json string) from
 # You can get this secret from https://cloud.openshift.com/clusters/install#pull-secret
 set +x
-export PULL_SECRET=''
+export PULL_SECRET='fake-token'
 set -x
 
 # Uncomment to build a copy of ironic or inspector locally

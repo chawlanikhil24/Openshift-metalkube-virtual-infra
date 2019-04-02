@@ -19,5 +19,9 @@ done
 cd dev-scripts
 make clean
 
+sudo vbmc list
+echo "Deleting all VBMC Instances..."
 for count in $(seq 0 $VM_COUNT);do sudo vbmc stop openshift_master_${count};done
 for count in $(seq 0 $VM_COUNT);do sudo vbmc delete openshift_master_${count};done
+echo "Clear..."
+sudo vbmc list

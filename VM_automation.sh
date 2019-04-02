@@ -2,6 +2,8 @@
 
 VM_COUNT=${1}
 VM_COUNT="${VM_COUNT:-3}"
+VM_COUNT=$(( VM_COUNT - 1 ))
+
 echo "$VM_COUNT"
 
 sudo yum install git python34-virtualenv  -y
@@ -10,12 +12,12 @@ virtualenv-3 venv
 source venv/bin/activate
 pip3 install jinja2
 python3 script.py ${VM_COUNT}
-
+deactivate #deactivate the virtual Environment
 
 git clone https://github.com/openshift-metalkube/dev-scripts
 rm -rf dev-scripts/tripleo-quickstart-config/metalkube-nodes.yml
 mv out.yaml dev-scripts/tripleo-quickstart-config/metalkube-nodes.yml
-mv config_$USER.sh dev-scripts/
+mv config_example.sh dev-scripts/config_${USER}.sh
 cd dev-scripts
 
 
