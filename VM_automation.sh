@@ -2,7 +2,6 @@
 
 VM_COUNT=${1}
 VM_COUNT="${VM_COUNT:-3}"
-VM_COUNT=$(( VM_COUNT - 1 ))
 
 echo "$VM_COUNT"
 
@@ -37,6 +36,7 @@ export OS_URL=http://localhost:6385/
 
 #Ensure No baremetal is running
 openstack baremetal node list
+VM_COUNT=$(( VM_COUNT - 1 ))
 
 for count in $(seq 0 $VM_COUNT );do
 	openstack baremetal node create \
