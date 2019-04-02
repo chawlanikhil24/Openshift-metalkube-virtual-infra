@@ -49,8 +49,10 @@ for count in $(seq 0 $VM_COUNT );do
 done
 
 echo "Wait for 60 seconds"
+total_time_left=60
 for i in $(seq 0 60);do
-    echo "Waiting for nodes to come UP..."
+    echo "Waiting for nodes to come UP."${total_time_left}" Seconds left..."
+    total_time_left=$(( total_time_left - i ))
     sleep 1
 done
 
