@@ -14,9 +14,9 @@ This repository has the scripts that automates the deployment of virtual machine
 ```shell
 $ git clone https://github.com/chawlanikhil24/Openshift-metalkube-virtual-infra.git
 $ cd Openshift-metalkube-virtual-infra
-$ ./VM_automation.sh <specify the number of nodes to be Provisioned from IRONIC> --> Default count : 3```
-
-Give it sometime, and at the end run the following command to check Ironic Provisioned Virtual Bare-metals:
+$ ./VM_automation.sh <specify the number of nodes to be Provisioned from IRONIC> --> Default count : 3
+```
+Give it sometime, and at the end of the run, use the following command to check the status of Ironic Provisioned Virtual Bare-metals:
 
 ```shell
 $ openstack baremetal node list
