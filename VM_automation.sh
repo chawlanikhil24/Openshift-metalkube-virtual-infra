@@ -20,8 +20,8 @@ cp -pr config_example.sh dev-scripts/config_${USER}.sh
 cd dev-scripts
 
 
-##Uncomment this if this is a fresh install
-#./01_install_requirements.sh
+#Comment this script if this is a repeat install
+./01_install_requirements.sh
 
 ./02_configure_host.sh
 
@@ -61,5 +61,4 @@ for count in $(seq 0 $VM_COUNT );do
 done
 
 
-openstack baremetal node list 
-
+openstack baremetal node list
